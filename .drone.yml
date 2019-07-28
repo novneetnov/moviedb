@@ -3,9 +3,6 @@ pipeline:
     image: codemy/ruby:2.3.1
     commands: 
       - gem update bundler
-      - bundle install --path vendor/bundle
-      - bundle exec rake db:create db:schema:load
-      - bundle exec rake test
 
 services:
   database:

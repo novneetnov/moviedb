@@ -7,4 +7,21 @@ pipeline:
       - bundle exec rake db:create db:schema:load
       - bundle exec rake test
 
+    environment:
+      RACK_ENV: test
+      RAILS_ENV: test
+      SECRET_KEY_BASE: blahblahblah
+
+services:
+  database:
+    image: postgres:9.5.1
+  redis:
+    image: redis:3.0.7
+  elasticsearch:
+    image: elasticsearch:2.2.0
+
+cache:
+    mount:
+      - vendor/bundle
+      - .git
 

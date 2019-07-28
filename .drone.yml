@@ -12,7 +12,7 @@ pipeline:
       RAILS_ENV: test
       SECRET_KEY_BASE: blahblahblah
 
-  compose:
+  services:
     database:
       image: postgres:9.5.1
     redis:

@@ -1,26 +1,27 @@
-build:
-  image: codemy/ruby:2.3.1
-  commands: 
-    - gem update bundler
-    - bundle install --path vendor/bundle
-    - bundle exec rake db:create db:schema:load
-    - bundle exec rake test
+pipeline:
+  build:
+    image: codemy/ruby:2.3.1
+    commands: 
+      - gem update bundler
+      - bundle install --path vendor/bundle
+      - bundle exec rake db:create db:schema:load
+      - bundle exec rake test
 
-  environment:
-    RACK_ENV: test
-    RAILS_ENV: test
-    SECRET_KEY_BASE: blahblahblah
+    environment:
+      RACK_ENV: test
+      RAILS_ENV: test
+      SECRET_KEY_BASE: blahblahblah
 
-compose:
-  database:
-    image: postgres:9.5.1
-  redis:
-    image: redis:3.0.7
-  elasticsearch:
-    image: elasticsearch:2.2.0
+  compose:
+    database:
+      image: postgres:9.5.1
+    redis:
+      image: redis:3.0.7
+    elasticsearch:
+      image: elasticsearch:2.2.0
 
-cache:
-  mount:
-    - vendor/bundle
-    - .git
+  cache:
+    mount:
+      - vendor/bundle
+      - .git
 

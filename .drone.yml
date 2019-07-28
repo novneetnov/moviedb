@@ -21,7 +21,7 @@ services:
     image: elasticsearch:2.2.0
 
 cache:
-    mount:
-      - vendor/bundle
-      - .git
+  mount:
+    - vendor/bundle
+    - .git
 

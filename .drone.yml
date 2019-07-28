@@ -13,11 +13,11 @@ build:
 
 compose:
   database:
-    image: postgres:10
+    image: postgres:9.5.1
   redis:
-    image: redis:latest
+    image: redis:3.0.7
   elasticsearch:
-    image: elasticsearch:1
+    image: elasticsearch:2.2.0
 
 cache:
   mount:

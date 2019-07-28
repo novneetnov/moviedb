@@ -1,13 +1,6 @@
 pipeline:
   build:
-    image: codemy/ruby:2.3.1
+    image: ruby:2.3.1
     commands: 
       - gem update bundler
 
-services:
-  database:
-    image: postgres:9.5.1
-  redis:
-    image: redis:3.0.7
-  elasticsearch:
-    image: elasticsearch:2.2.0
